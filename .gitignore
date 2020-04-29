@@ -1,0 +1,8 @@
+./target
+./.idea
+checker.iml
+/.idea/checker.iml
+/target/classes/META-INF/checker.kotlin_module
+/target/test-classes/META-INF/checker.kotlin_module
+/.idea/checkstyle-idea.xml
+/.idea/compiler.xml
