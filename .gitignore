@@ -1,5 +1,5 @@
-./target
-./.idea
+/target
+/.idea
 checker.iml
 /.idea/checker.iml
 /target/classes/META-INF/checker.kotlin_module
