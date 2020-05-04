@@ -29,4 +29,31 @@ public class NumberCheckerTest {
         //then
         assertThat(result, is(FALSE));
     }
+
+    @Test
+    void isNumberPalindrome() {
+        //when
+        final boolean result = numberChecker.isNumberPalindrome(345676543);
+
+        //then
+        assertThat(result, is(TRUE));
+    }
+
+    @Test
+    void isNumberNotPalindrome() {
+        //when
+        final boolean result = numberChecker.isNumberPalindrome(12366);
+
+        //then
+        assertThat(result, is(FALSE));
+    }
+
+    @Test
+    void isNumberPalindromeString() {
+        //when
+        final boolean result = numberChecker.isNumberPalindrome(345676543);
+
+        //then
+        assertThat(result, is(TRUE));
+    }
 }
