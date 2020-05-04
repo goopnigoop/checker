@@ -41,6 +41,33 @@ class FibonacciServiceTest {
     }
 
     @Test
+    void get10FibonacciNumberRecursion() {
+        //when
+        final long nValue = fibonacciService.getNValueRecursion(10);
+        //then
+        assertThat(nValue, is(34L));
+    }
+
+    @Test
+    void get10FibonacciNumberRecursionImproved() {
+        //when
+        final long nValue = fibonacciService.getNValueRecursionImproved(10);
+        //then
+        assertThat(nValue, is(34L));
+    }
+
+    @Test
+    void getNFibonacciNumberRecursionAndWithout() {
+        //when
+        final long nValue = fibonacciService.getNValue(20);
+        final long recursion = fibonacciService.getNValueRecursion(20);
+
+        //then
+        assertThat(nValue, is(recursion));
+    }
+
+
+    @Test
     void getArrayOfFibonacciNumbers() {
         //when
         long[] arr = fibonacciService.getNNumbers(10);

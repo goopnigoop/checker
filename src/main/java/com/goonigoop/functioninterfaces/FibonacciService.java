@@ -20,8 +20,32 @@ public class FibonacciService {
     }
 
     public long getNValueRecursion(int i) {
+        if (i == 1) {
+            return 0;
+        }
+        if (i == 2) {
+            return 1;
+        }
+        return getNValueRecursion(i-1) + getNValueRecursion(i-2);
+    }
 
-        return 0;
+
+    public long getNValueRecursionImproved(int i) {
+        long[] cache = new long[i];
+        cache[0] = 0;
+        cache[1] = 1;
+       return fibImpr(i,cache);
+    }
+
+    private long fibImpr(int i, long[] cache) {
+        if (i == 1 || i == 2) {
+            return i-1;
+        }
+        if(cache[i-1]>0 )
+            return cache[i - 1];
+
+        cache[i-1] = fibImpr(i-1, cache) + fibImpr(i-2,cache);
+        return cache[i-1];
     }
 
     public long[] getNNumbers(int i) {
