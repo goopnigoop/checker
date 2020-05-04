@@ -1,5 +1,7 @@
 package com.goonigoop.functioninterfaces;
 
+import java.util.function.LongSupplier;
+
 public class FibonacciService {
     public long getNValue(int i) {
         if (i == 1) {
@@ -27,6 +29,21 @@ public class FibonacciService {
             return 1;
         }
         return getNValueRecursion(i-1) + getNValueRecursion(i-2);
+    }
+
+    public LongSupplier getFibSupplier(){
+        return new LongSupplier() {
+            long prev = 0;
+            long next = 1;
+            @Override
+            public long getAsLong() {
+                long t = prev;
+                long res = this.prev + this.next;
+                this.prev = next;
+                this.next = res;
+                return t;
+            }
+        };
     }
 
 

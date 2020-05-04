@@ -3,6 +3,8 @@ package com.goonigoop.functioninterfaces;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.stream.LongStream;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
@@ -73,5 +75,15 @@ class FibonacciServiceTest {
         long[] arr = fibonacciService.getNNumbers(10);
         //then
         assertThat(arr, equalTo(new long[]{0L, 1L, 1L, 2L, 3L, 5L, 8L, 13L, 21L, 34L}));
+    }
+
+    @Test
+    void getFibSupplier() {
+        //when
+        final LongStream longStream = LongStream.generate(fibonacciService.getFibSupplier()).limit(10);
+
+        //then
+        assertThat(longStream.toArray() , equalTo(new long[]{0L, 1L, 1L, 2L, 3L, 5L, 8L, 13L, 21L, 34L}));
+
     }
 }
