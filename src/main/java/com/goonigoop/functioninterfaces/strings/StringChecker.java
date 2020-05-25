@@ -6,8 +6,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-import static java.util.Objects.isNull;
-
 public class StringChecker {
     public Map<String, Integer> countWordsInString(String inputString){
         if (StringUtils.isEmpty(inputString)) {
@@ -17,12 +15,7 @@ public class StringChecker {
         final String[] s = inputString.split(" ");
         final HashMap<String, Integer> map = new HashMap<>();
         for (int i = 0; i < s.length; i++) {
-            final Integer integer = map.get(s[i]);
-            if (isNull(integer)) {
-                map.put(s[i], 1);
-            } else {
-                map.put(s[i], integer + 1);
-            }
+            map.merge(s[i],1, Integer::sum);
         }
         return map;
     }
