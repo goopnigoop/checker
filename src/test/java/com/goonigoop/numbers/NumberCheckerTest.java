@@ -56,4 +56,13 @@ public class NumberCheckerTest {
         //then
         assertThat(result, is(TRUE));
     }
+
+    @Test
+    void isNumberEven() {
+        //when
+        final boolean result = numberChecker.isEven(345676543);
+
+        //then
+        assertThat(result, is(FALSE));
+    }
 }

@@ -51,4 +51,8 @@ public class NumberChecker {
         }
         return true;
     }
+
+    public boolean isEven(int number){
+        return (number&1)==0;
+    }
 }
